@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   app:
     image: node:18
@@ -8,7 +6,7 @@ services:
     volumes:
       - ./:/app
     ports:
-      - "3000:3000"
+      - "3307:3306"
     command: npm start
     depends_on:
       - db
