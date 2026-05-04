@@ -125,7 +125,7 @@ docker-compose restart app
 
 ### 1. Aplicación Node.js
 
-- **URL**: `http://localhost:3307`
+- **URL**: `http://localhost:3000`
 - **Descripción**: Tu aplicación Node.js se ejecutará en este puerto
 - **Ubicación en contenedor**: `/app`
 - **Volumen montado**: `./` del proyecto local está sincronizado con `/app` en el contenedor
@@ -183,7 +183,7 @@ working_dir: /app
 volumes:
   - ./:/app              # Sincroniza código local
 ports:
-  - "3307:3306"         # Puerto 3307 accesible localmente
+  - "3000:3000"         # Puerto 3000 accesible localmente
 ```
 
 - **Imagen**: Node.js versión 18
@@ -235,6 +235,7 @@ environment:
 2. Asegúrate de que los puertos no están en uso:
    ```bash
    # En Windows PowerShell
+   netstat -ano | findstr :3000
    netstat -ano | findstr :3307
    netstat -ano | findstr :8080
    ```
@@ -273,7 +274,7 @@ Si un puerto ya está en uso, puedes:
 1. Cambiar el puerto en `docker-compose.yml`:
    ```yaml
    ports:
-     - "3308:3306"  # Cambiar 3307 a otro puerto disponible
+     - "3001:3000"  # Cambiar 3000 a 3001
    ```
 
 2. O detener el proceso que lo está usando
@@ -301,7 +302,7 @@ docker-compose down
 - [ ] Docker y Docker Compose están instalados
 - [ ] El archivo `docker-compose.yml` está en la carpeta correcta
 - [ ] Tienes permisos de lectura/escritura en la carpeta del proyecto
-- [ ] Los puertos 3307 y 8080 están disponibles
+- [ ] Los puertos 3000, 3307 y 8080 están disponibles
 - [ ] Tu `package.json` tiene un script `start`
 
 ## 📞 Soporte
