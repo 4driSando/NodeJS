@@ -133,7 +133,7 @@ docker-compose restart app
 ### 2. Base de Datos MySQL
 
 - **Host**: `db` (desde otros servicios en Docker) o `localhost` (desde tu máquina)
-- **Puerto**: `3306`
+- **Puerto**: `3307`
 - **Usuario**: `root`
 - **Contraseña**: `root`
 - **Base de datos predeterminada**: `mi_base`
@@ -199,6 +199,8 @@ restart: always
 environment:
   MYSQL_ROOT_PASSWORD: root
   MYSQL_DATABASE: mi_base
+ports:
+  - "3307:3306"
 volumes:
   - db_data:/var/lib/mysql  # Datos persistentes
 ```
@@ -234,7 +236,7 @@ environment:
    ```bash
    # En Windows PowerShell
    netstat -ano | findstr :3307
-   netstat -ano | findstr :3306
+   netstat -ano | findstr :3307
    netstat -ano | findstr :8080
    ```
 
@@ -300,7 +302,7 @@ docker-compose down
 - [ ] Docker y Docker Compose están instalados
 - [ ] El archivo `docker-compose.yml` está en la carpeta correcta
 - [ ] Tienes permisos de lectura/escritura en la carpeta del proyecto
-- [ ] Los puertos 3307, 3306 y 8080 están disponibles
+- [ ] Los puertos 3307 y 8080 están disponibles
 - [ ] Tu `package.json` tiene un script `start`
 
 ## 📞 Soporte
