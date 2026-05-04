@@ -6,7 +6,7 @@ services:
     volumes:
       - ./:/app
     ports:
-      - "3307:3306"
+      - "3307:3000"
     command: npm start
     depends_on:
       - db

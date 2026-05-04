@@ -199,10 +199,10 @@ restart: always
 environment:
   MYSQL_ROOT_PASSWORD: root
   MYSQL_DATABASE: mi_base
-ports:
-  - "3307:3306"
 volumes:
   - db_data:/var/lib/mysql  # Datos persistentes
+ports:
+  - "3307:3306"
 ```
 
 - **Imagen**: MySQL versión 8
@@ -235,7 +235,6 @@ environment:
 2. Asegúrate de que los puertos no están en uso:
    ```bash
    # En Windows PowerShell
-   netstat -ano | findstr :3307
    netstat -ano | findstr :3307
    netstat -ano | findstr :8080
    ```
