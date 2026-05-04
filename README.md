@@ -39,14 +39,27 @@ docker_proyectos/
 └── NodeJS/
     ├── docker-compose.yml
     ├── README.md
-    ├── package.json          (tu proyecto Node.js)
+    ├── package.json          (dependencias y scripts de Node.js)
     ├── package-lock.json     (generado automáticamente)
+    ├── index.js              (archivo principal de la aplicación)
+    ├── .env                  (variables de entorno)
+    ├── .gitignore            (archivos a ignorar en Git)
     └── [otros archivos de tu app]
 ```
 
-### Paso 3: Configurar Variables de Entorno (Opcional)
+### Paso 3: Instalar Dependencias
 
-Si necesitas personalizar las variables de entorno, puedes crear un archivo `.env` en la raíz del proyecto:
+Instala las dependencias de Node.js:
+
+```bash
+npm install
+```
+
+Esto creará la carpeta `node_modules` y el archivo `package-lock.json`.
+
+### Paso 4: Configurar Variables de Entorno (Opcional)
+
+Si necesitas personalizar las variables de entorno, puedes modificar el archivo `.env` en la raíz del proyecto:
 
 ```bash
 MYSQL_ROOT_PASSWORD=root
@@ -282,8 +295,10 @@ Si un puerto ya está en uso, puedes:
 ## 📝 Archivos Importantes
 
 - `docker-compose.yml`: Definición de todos los servicios
-- `package.json`: Dependencias de Node.js
-- `.env`: Variables de entorno (crear si es necesario)
+- `package.json`: Dependencias y scripts de Node.js
+- `index.js`: Archivo principal de la aplicación Express
+- `.env`: Variables de entorno (opcional)
+- `.gitignore`: Archivos a ignorar en control de versiones
 
 ## 🛑 Parar Correctamente
 
@@ -303,6 +318,7 @@ docker-compose down
 - [ ] El archivo `docker-compose.yml` está en la carpeta correcta
 - [ ] Tienes permisos de lectura/escritura en la carpeta del proyecto
 - [ ] Los puertos 3000, 3307 y 8080 están disponibles
+- [ ] Las dependencias de Node.js están instaladas (`npm install`)
 - [ ] Tu `package.json` tiene un script `start`
 
 ## 📞 Soporte
@@ -322,3 +338,5 @@ Si encuentras problemas:
 - Node.js: 18
 - MySQL: 8
 - Docker Compose: 3.8
+- Express: ^4.18.2
+- MySQL2: ^3.6.5
